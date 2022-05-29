@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 
+const mongojs = require("mongojs");
+const db = mongojs("authenticate", ["users"]);
+
 const bodyParser= require("body-parser");
 
 const path = require("path");
@@ -17,6 +20,19 @@ app.get("/", function(req, res) {
 
 app.get("/home.pug", function(req, res) {
     res.render("home")
+});
+
+app.get("/register", function(req, res) {
+    res.render("register");
+});
+
+app.post("/home.pug", function(req, res) {
+    db.users.insert({name: req.body.name, email: req.body.email, phone: req.body.phone, password: req.body.password}, function(err, data) {
+        if(err) {
+            return res.status(500);
+        }
+    })
+    return res.redirect("?register=true");
 });
 
 app.listen(3000, function () {
