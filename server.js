@@ -35,6 +35,39 @@ app.post("/home.pug", function(req, res) {
     return res.redirect("?register=true");
 });
 
+app.post("/login", function(req, res) {
+    const reqemail = req.body.email;
+    const reqpassword = req.body.password;
+
+     const user = db.users.findOne({email: reqemail}, function(err, data){
+        if(err) {
+            return res.status(500);
+        }else if(!data){
+            res.redirect("?user=false")
+        }else {
+            if(reqpassword === data.password){
+                res.redirect("?user=true")
+            }else {
+                res.redirect("?user=false")
+            }
+    }
+    });
+});
+
+app.get("/login", Auth, function(req, res){
+    res.render("welcome");
+});
+
+function Auth(req, res, next) {
+    console.log("auth");
+    if(req.query.user=== "true") {
+        next();
+    } 
+    else {
+        res.render("invalid");
+    }
+}
+
 app.listen(3000, function () {
     console.log("server running at port 3000");
 });
