@@ -1,0 +1,93 @@
+body{
+    margin:0;
+    padding:0;
+    width:100vw;
+    height: 100vh;
+    background-image: url("home.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width:420px;
+    max-width: 460px;
+    min-width: 360px;
+    background:hsla(0, 8%, 5%, 0.534);
+    padding:10px;
+    border:none;
+    border-radius: 5px;
+}
+
+h2{
+    text-align: center;
+    font-size: 25px;
+    font-weight:lighter;
+    color:snow;
+}
+
+div.input{
+    text-align: center;
+    font-size: 18px;
+    font-weight:lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    color:snow;
+}
+
+div.input {
+    position: relative;
+}
+
+div.input label{
+    position: absolute;
+    left:10px;
+}
+
+div.input input{
+    margin-right:0px;
+    background:hsla(0, 0%, 0%, 0.582);
+    border:1px solid snow;
+    font-family: Arial, Helvetica, sans-serif;
+    color:snow;
+    font-size: 16px;
+}
+
+input[type="submit"],a {
+    text-align: center;
+    width:90%;
+    padding:3px;
+    font-size: 16px;
+    font-weight:lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    color:snow;
+    border:1px solid hsla(0, 0%, 0%, 0.582);
+    background:rgba(19, 17, 17, 0.562);
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,a:hover {
+    background: hsla(0, 2%, 90%, 0.24);
+    border:1px solid snow;
+}
+
+a{
+    text-decoration: none;
+    display: inline-block;
+}
+h4{
+    color:snow;
+    margin:0;
+    padding:0;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:16px;
+    margin:3px;
+    text-align: center;
+}
+
+div.btn {
+    text-align: center;
+    padding-bottom:5px;
+}
